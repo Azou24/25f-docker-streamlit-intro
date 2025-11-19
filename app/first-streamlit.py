@@ -4,7 +4,7 @@ import streamlit as st
 
 # Function to create a sample data frame and display it
 def expanded_app():
-    st.title("Welcome to a Streamlit Demo! Alex! 🎈")
+    st.title("Welcome to a Streamlit Demo! Alex!a🎈")
     
     # Navigation button to API Access page on the left menu bar
     st.page_link("pages/1_API_Access.py", label="Go to API Access", icon="🔌")
