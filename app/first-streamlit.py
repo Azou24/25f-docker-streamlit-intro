@@ -1,12 +1,44 @@
 # Intro Streamlit Demo
 
 import streamlit as st
-import pandas as pd
-import numpy as np
 
 # Function to create a sample data frame and display it
 def expanded_app():
     st.title("Welcome to a Streamlit Demo! 🎈")
+    
+    # Navigation button to API Access page on the left menu bar
+    st.page_link("pages/1_API_Access.py", label="Go to API Access", icon="🔌")
+    
+    
+    #######################################################################
+    ## --------------- IN CLASS ---------------
+    # Let's personalize this a little.  Add in headshots or avatars for each of 
+    # your team members present in class today. 
+    st.header("About You & About Me")
+    
+    # Create two columns: one for the image, one for the bio
+    col1, col2 = st.columns([1, 2])
+    
+    with col1:
+        # Display placeholder headshot image
+        # Students should replace 'avatar.png' in assets/images/ with their own headshot
+        st.image("assets/images/avatar.png", 
+                 width=200, 
+                 caption="Replace this image with your headshot in assets/images/")
+    
+    with col2:
+        # Lorem ipsum placeholder text - Put a little Bio here!
+        st.write("""
+        **Lorem ipsum dolor sit amet**, consectetur adipiscing elit. 
+        Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. 
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris 
+        nisi ut aliquip ex ea commodo consequat.
+        
+        *Replace this lorem ipsum text with your own brief bio.*
+        """)
+    
+    st.markdown("---")
+     
 
     # ------- Displaying Text -------
     st.header("Text Presentation Showcase")
@@ -28,7 +60,6 @@ def expanded_app():
             1.  Ordered list item 1
             2.  Ordered list item 2
         * Include [hyperlinks](https.streamlit.io).
-        * Display images: ![Streamlit Logo](https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.svg)
         * Write blockquotes:
             > *To be, or not to be, that is the question.*
         * And even horizontal rules:
@@ -51,30 +82,6 @@ def expanded_app():
     st.subheader("This is an `st.subheader()`")
     st.caption("And this is `st.caption()`, useful for small text or image captions.")
 
-    # Displaying properly syntax highlighted code is important for many 
-    # apps. Notice that the code is stored in a string, and then
-    # st.code is used to display it with the second param being the language. 
-    st.subheader("Displaying Code Blocks with `st.code()`:")
-    python_code = """
-    
-def greet(name):
-    print(f"Hello, {name}!")
-
-greet("Streamlit User")
-    """
-    st.code(python_code, language="python")
-
-    # You can also render LaTeX in Streamlit. 
-    # Notice the use of $$...$$ for block LaTeX or $...$ for inline LaTeX
-    st.subheader("Displaying Mathematical Expressions with `st.latex()`:")
-    st.latex(r'''
-        e^{i\pi} + 1 = 0
-    ''')
-    st.write("""You can also include LaTeX in `st.markdown()` 
-             or `st.write()` like this: $$\\frac{a}{b}$$ or 
-             inline $a^2 + b^2 = c^2$.""")
-
-
     # ------ Other Data Display Elements -------
     st.header("More Data Display Options")
 
@@ -88,20 +95,13 @@ greet("Streamlit User")
                 value="1,203", 
                 delta="102 since last week", 
                 delta_color="off") 
-
-    st.subheader("Using `st.json()` to display JSON data:")
-    sample_json = {
-        "name": "Streamlit App",
-        "version": "1.2.0",
-        "features": ["data display", "text formatting", "interactivity"],
-        "is_awesome": True
-    }
-    st.json(sample_json)
-
-    st.write("`st.json()` can also take a JSON string:")
-    st.json('{"fruit": "apple", "size": "large", "color": "red"}')
-
-
+    
+    #######################################################################
+    ## ----------------------- IN CLASS ----------------------- 
+    # Change the metrics above to some user and application example metrics 
+    # that you might actually use in your project UI.
+    #######################################################################
+    
     # ------ Markdown in st.write directly with variables ------
     st.header("Dynamic Markdown in `st.write`")
     st.write("""You can construct Markdown strings dynamically (adding 
